@@ -1,0 +1,1 @@
+{ "name": "assign", "version": "0.1.0", "description": "Splits a task into independent pieces and hands each to its own Claude Code session or subagent, with a model and effort matched to how hard the piece is." }

@@ -1,0 +1,5 @@
+{
+  "name": "assign-skill",
+  "owner": { "name": "minhphamdxp3-dev" },
+  "plugins": [{ "name": "assign", "source": "./" }]
+}
