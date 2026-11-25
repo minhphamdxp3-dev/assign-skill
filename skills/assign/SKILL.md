@@ -43,7 +43,7 @@ Judge by how much thinking a piece needs, not by length. Use the cheapest row th
 
 `start_session` only accepts the same model family as the session starting it, or cheaper, and the same effort or lower. Higher requests are silently ignored. If a piece deserves more, say so in the summary and suggest running `/assign` from a stronger session.
 
-Put only the part that needs Opus on Opus, not the whole task.
+Put only the part that needs Opus on Opus, not the whole task. For a big build, a Sonnet session with an Opus advisor is often cheaper than an all-Opus session for similar quality. Prefer it when the app gives sessions the advisor. You can't switch the advisor on for another session yourself, so if one starts without it, tell the user.
 
 ## 4. Subagent or session
 
@@ -60,6 +60,10 @@ Keep each brief short: where to work, what "done" looks like, any limits. A fres
 End every brief with these rules:
 
 > **Save tokens.** Do the hard thinking yourself. Give easy steps to something cheaper: a Haiku subagent (low effort) for small checks and lookups, or a new session on a cheaper model than yours for bigger steps. Set model and effort every time. Never use your own model or a stronger one for easy steps. Sessions you start may use subagents but must not start more sessions.
+>
+> **Name the model on every helper.** Every subagent call, and every agent inside a workflow, sets its model and effort by name. A helper with no model set silently runs on your own (often the most expensive) model. Sonnet (medium) for building and fixing, Haiku (low) for screenshots, checks and lookups. Opus only for your own design and review, or a helper that truly needs it, with a one-line reason.
+>
+> **Use the advisor at key moments only.** If you have the `advisor` tool, call it before committing to an approach on a big or design-heavy change, when stuck, and before reporting done (save or commit the work first). Don't call it for routine steps: it re-reads the whole conversation each time.
 >
 > **Report short, in plain words.** Reply in at most 5 lines: done / partly done / blocked; what you did, in one sentence; what is left; where the result is; anything I must decide. No step lists, no code, no jargon. Pass these rules into any session you start.
 
